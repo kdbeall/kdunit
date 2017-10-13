@@ -1,50 +1,54 @@
-#include<assert.h>
-#include<string.h>
-#include<math.h>
 #include "kdunit.h"
 
-
-void assertNull(const void *p)
+void kdAssert(const bool val, const char *fileName, const int lineNum)
 {
-  assert(p == NULL);
+  if(!val){
+    fprintf(stderr, "Assertion failure: %s: %i\n", fileName, lineNum);
+    exit(0);
+  }
 }
 
-void assertNotNull(const void *p)
+void kdAssertNull(const void *p, const char *fileName, const int lineNum)
 {
-  assert(p != NULL);
+  kdAssert(p == NULL, fileName, lineNum);
 }
 
-void assertStringEquals(const char *expected, const char *actual)
+void kdAssertNotNull(const void *p, const char *fileName, const int lineNum)
 {
-  assert(strcmp(expected,actual)==0);
+  kdAssert(p != NULL, fileName, lineNum);
 }
 
-void assertDoubleEquals(const double expected, const double actual, const double delta)
+void kdAssertStringEquals(const char *expected, const char *actual, const char *fileName, const int lineNum)
 {
-  assert(fabs(expected - actual) <= delta);
+  kdAssert(strcmp(expected,actual)==0, fileName, lineNum);
 }
 
-void assertFloatEquals(const float expected, const float actual, const float delta)
+void kdAssertDoubleEquals(const double expected, const double actual, const double delta, const char *fileName, const int lineNum)
 {
-  assert(fabs(expected - actual) <= delta);
+  kdAssert(fabs(expected - actual) <= delta, fileName, lineNum);
 }
 
-void assertLongEquals(const long expected, const long actual)
+void kdAssertFloatEquals(const float expected, const float actual, const float delta, const char *fileName, const int lineNum)
 {
-  assert(expected==actual);
+  kdAssert(fabs(expected - actual) <= delta, fileName, lineNum);
 }
 
-void assertIntEquals(const int expected, const int actual)
+void kdAssertLongEquals(const long expected, const long actual, const char *fileName, const int lineNum)
 {
-  assert(expected==actual);
+  kdAssert(expected==actual, fileName, lineNum);
 }
 
-void assertShortEquals(const short expected, const short actual)
+void kdAssertIntEquals(const int expected, const int actual, const char *fileName, const int lineNum)
 {
-  assert(expected==actual);
+  kdAssert(expected==actual, fileName, lineNum);
 }
 
-void assertCharEquals(const char expected, const char actual)
+void kdAssertShortEquals(const short expected, const short actual, const char *fileName, const int lineNum)
 {
-  assert(expected==actual);
+  kdAssert(expected==actual, fileName, lineNum);
+}
+
+void kdAssertCharEquals(const char expected, const char actual, const char *fileName, const int lineNum)
+{
+  kdAssert(expected==actual, fileName, lineNum);
 }
