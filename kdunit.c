@@ -3,7 +3,7 @@
 void kdAssert(const bool val, const char *fileName, const int lineNum)
 {
   if(!val){
-    fprintf(stderr, "%s: %i\n", fileName, lineNum);
+    fprintf(stderr, "Assertion failure: %s: %i\n", fileName, lineNum);
     exit(0);
   }
 }
