@@ -1,22 +1,31 @@
 #ifndef KDUNIT_H
 #define KDUNIT_H
 
-void assertNull(const void *p);
+#include<stdio.h>
+#include<stdlib.h>
+#include<stdbool.h>
+#include<string.h>
+#include<math.h>
+#include "kdunit.c"
 
-void assertNotNull(const void *p);
+void kdAssert(bool val);
 
-void assertStringEquals(const char *expected, const char *actual);
+void kdAssertNull(const void *p);
 
-void assertDoubleEquals(const double expected, const double actual, const double delta);
+void kdAssertNotNull(const void *p);
 
-void assertFloatEquals(const float expected, const float actual, const float delta);
+void kdAssertStringEquals(const char *expected, const char *actual);
 
-void assertLongEquals(const long expected, const long actual);
+void kdAssertDoubleEquals(const double expected, const double actual, const double delta);
 
-void assertIntEquals(const int expected, const int actual);
+void kdAssertFloatEquals(const float expected, const float actual, const float delta);
 
-void assertShortEquals(const short expected, const short actual);
+void kdAssertLongEquals(const long expected, const long actual);
 
-void assertCharEquals(const char expected, const char actual);
+void kdAssertIntEquals(const int expected, const int actual);
+
+void kdAssertShortEquals(const short expected, const short actual);
+
+void kdAssertCharEquals(const char expected, const char actual);
 
 #endif
