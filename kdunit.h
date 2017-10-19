@@ -1,22 +1,33 @@
 #ifndef KDUNIT_H
 #define KDUNIT_H
 
-void assertNull(const void *p);
+#include<stdio.h>
+#include<stdlib.h>
+#include<stdbool.h>
+#include<string.h>
+#include<math.h>
+#include "kdunit.c"
 
-void assertNotNull(const void *p);
+#define REPORT __FILE__,__LINE__
 
-void assertStringEquals(const char *expected, const char *actual);
+void kdAssert(bool val, const char *fileName, const int lineNum);
 
-void assertDoubleEquals(const double expected, const double actual, const double delta);
+void kdAssertNull(const void *p, const char *fileName, const int lineNum);
 
-void assertFloatEquals(const float expected, const float actual, const float delta);
+void kdAssertNotNull(const void *p, const char *fileName, const int lineNum);
 
-void assertLongEquals(const long expected, const long actual);
+void kdAssertStringEquals(const char *expected, const char *actual, const char *fileName, const int lineNum);
 
-void assertIntEquals(const int expected, const int actual);
+void kdAssertDoubleEquals(const double expected, const double actual, const double delta, const char *fileName, const int lineNum);
 
-void assertShortEquals(const short expected, const short actual);
+void kdAssertFloatEquals(const float expected, const float actual, const float delta, const char *fileName, const int lineNum);
 
-void assertCharEquals(const char expected, const char actual);
+void kdAssertLongEquals(const long expected, const long actual, const char *fileName, const int lineNum);
+
+void kdAssertIntEquals(const int expected, const int actual, const char *fileName, const int lineNum);
+
+void kdAssertShortEquals(const short expected, const short actual, const char *fileName, const int lineNum);
+
+void kdAssertCharEquals(const char expected, const char actual, const char *fileName, const int lineNum);
 
 #endif
